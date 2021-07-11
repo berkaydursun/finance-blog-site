@@ -1,0 +1,13 @@
+.card-title {
+    color: black!important;
+}
+
+.card-text {
+    color: black!important;
+}
+
+.card-image {
+    width: 300px;
+    padding: 10px;
+    margin: 0 auto;
+}

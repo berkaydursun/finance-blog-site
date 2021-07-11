@@ -1,0 +1,46 @@
+<%- include('./partials/header.ejs') %>
+
+
+
+
+
+    <div class="container">
+
+        <table class="table" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">Blog ID</th>
+                    <th scope="col">Blog Title</th>
+                    <th scope="col">Blog Text</th>
+
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% blogs.forEach(blog=>{ %>
+                    <tr>
+                        <th scope="row">
+                            <%= blog.id %>
+                        </th>
+                        <td>
+                            <%= blog.title %>
+                        </td>
+                        <td>
+                            <%= (blog.text) %>
+                        </td>
+
+                        <td><a href="/admin/deleteBlog/<%= blog.id %>" class="btn btn-danger">Delete</a></td>
+                    </tr>
+
+
+                    <% }) %>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+
+    <%- include('./partials/footer.ejs') %>

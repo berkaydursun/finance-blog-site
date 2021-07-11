@@ -1,0 +1,26 @@
+{
+    "name": "financeblogwebsite",
+    "version": "1.0.0",
+    "description": "Financial Web Site",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index"
+    },
+    "author": "Berkay Dursun",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "ckeditor4": "^4.16.1",
+        "dompurify": "^2.3.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "jsdom": "^16.6.0",
+        "mongoose": "^5.13.2",
+        "multer": "^1.4.2",
+        "nodemon": "^2.0.10",
+        "path": "^0.12.7",
+        "string-strip-html": "^4.4.1",
+        "uuid": "^8.3.2"
+    }
+}

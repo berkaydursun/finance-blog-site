@@ -1,0 +1,41 @@
+<%- include('./partials/header.ejs') %>
+
+
+
+
+
+    <section id="blog">
+
+        <div class="container">
+
+            <div class="row d-flex justify-content-center">
+
+                <div class="card mt-4 text-center col-md-8">
+                    <img class="card-image " src="/images/<%= blog.imageURL %>" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=blog.title %>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%=blog.createdAt.toDateString() %>
+                        </h6>
+                        <p class="card-text">
+                            <%- blog.body%>
+                        </p>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+
+
+
+
+
+
+            <%- include('./partials/footer.ejs') %>
