@@ -1,11 +1,16 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require("path");
+
 const Blog = require('./models/blog');
+
 const app = express();
 const blogRoutes = require('./routes/blogRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const indexRoutes = require('./routes/indexRoutes');
+const isLogged = require('./middleware/loginCheck');
+
 const session = require('express-session');
 const PORT = process.env.PORT || 3000;
 
@@ -17,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || dbURI, { useUnifiedTopology: true, u
     .catch((err) => console.log(err));
 
 
-
+app.use(express.static(path.join(__dirname, '/public/')));
 
 
 app.use(session({
@@ -31,9 +36,9 @@ app.use(session({
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/public/'));
-// app.use(express.static(__dirname + '../public/'));
+
+
 
 app.use(blogRoutes);
-app.use(adminRoutes);
+app.use("/admin", isLogged, adminRoutes);
 app.use(indexRoutes);

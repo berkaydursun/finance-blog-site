@@ -2,8 +2,8 @@ var express = require('express'),
     Blog = require("../models/blog"),
     router = express.Router();
 var multer = require('multer');
+const path = require('path');
 
-const isLogged = require('../middleware/loginCheck');
 
 
 
@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-router.get("/admin", isLogged, (req, res) => {
+router.get("/", (req, res) => {
 
     res.render("admin");
 
@@ -33,11 +33,12 @@ router.get("/admin", isLogged, (req, res) => {
 
 
 
-router.get("/admin/addBlog", isLogged, (req, res) => {
+router.get("/addBlog", (req, res) => {
+    router.use(express.static(path.join(__dirname, '/public/')));
     res.render("addBlog");
 })
 
-router.post('/admin/addBlog', isLogged, upload.single('image'), (req, res) => {
+router.post('/addBlog', upload.single('image'), (req, res) => {
 
     const blog = new Blog({
         _id: uuidv4(),
@@ -46,13 +47,13 @@ router.post('/admin/addBlog', isLogged, upload.single('image'), (req, res) => {
         imageURL: req.file.originalname
     });
     blog.save()
-        .then((result) => { res.redirect("/blogs") })
+        .then((result) => { res.redirect("/admin") })
         .catch((err) => console.log(err))
 
 });
 
 
-router.get("/admin/deleteBlog", isLogged, (req, res) => {
+router.get("/deleteBlog", (req, res) => {
     Blog.find().sort({ createdAt: -1 })
         .then(result => res.render('deleteBlog', { blogs: result }))
         .catch(err => console.log(err));
@@ -60,43 +61,17 @@ router.get("/admin/deleteBlog", isLogged, (req, res) => {
 
 });
 
-router.get("/admin/deleteBlog/:id", isLogged, (req, res) => {
+router.delete("/deleteBlog/:id", (req, res) => {
 
     Blog.findByIdAndDelete(req.params.id)
-        .then(result => res.redirect("/admin/deleteBlog"))
+        .then(result => res.redirect("/admin"))
         .catch(err => console.log(err));
 
 
 });
 
 
-router.get("/signin", (req, res) => {
 
-    res.render("signin");
-
-});
-
-router.post('/signin', (req, res) => {
-    var username = req.body.username;
-    var password = req.body.password;
-
-    if (username && password) {
-
-        if (username === "admin" && password === "davlumbaz123") {
-
-            req.session.isLogged = true;
-            res.redirect('/admin');
-        } else {
-            res.redirect('/');
-
-        }
-    } else {
-        res.redirect('/');
-
-    }
-
-
-});
 
 
 
