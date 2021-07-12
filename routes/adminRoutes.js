@@ -2,6 +2,11 @@ var express = require('express'),
     Blog = require("../models/blog"),
     router = express.Router();
 var multer = require('multer');
+
+const isLogged = require('../middleware/loginCheck');
+
+
+
 const {
     v1: uuidv1,
     v4: uuidv4,
@@ -20,11 +25,19 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-router.get("/admin/addBlog", (req, res) => {
+router.get("/admin", isLogged, (req, res) => {
+
+    res.render("admin");
+
+});
+
+
+
+router.get("/admin/addBlog", isLogged, (req, res) => {
     res.render("addBlog");
 })
 
-router.post('/admin/addBlog', upload.single('image'), (req, res) => {
+router.post('/admin/addBlog', isLogged, upload.single('image'), (req, res) => {
 
     const blog = new Blog({
         _id: uuidv4(),
@@ -39,7 +52,7 @@ router.post('/admin/addBlog', upload.single('image'), (req, res) => {
 });
 
 
-router.get("/admin/deleteBlog", (req, res) => {
+router.get("/admin/deleteBlog", isLogged, (req, res) => {
     Blog.find().sort({ createdAt: -1 })
         .then(result => res.render('deleteBlog', { blogs: result }))
         .catch(err => console.log(err));
@@ -47,11 +60,40 @@ router.get("/admin/deleteBlog", (req, res) => {
 
 });
 
-router.get("/admin/deleteBlog/:id", (req, res) => {
+router.get("/admin/deleteBlog/:id", isLogged, (req, res) => {
 
     Blog.findByIdAndDelete(req.params.id)
         .then(result => res.redirect("/admin/deleteBlog"))
         .catch(err => console.log(err));
+
+
+});
+
+
+router.get("/signin", (req, res) => {
+
+    res.render("signin");
+
+});
+
+router.post('/signin', (req, res) => {
+    var username = req.body.username;
+    var password = req.body.password;
+
+    if (username && password) {
+
+        if (username === "admin" && password === "davlumbaz123") {
+
+            req.session.isLogged = true;
+            res.redirect('/admin');
+        } else {
+            res.redirect('/');
+
+        }
+    } else {
+        res.redirect('/');
+
+    }
 
 
 });
