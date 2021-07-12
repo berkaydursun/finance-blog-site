@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || dbURI, { useUnifiedTopology: true, u
     .catch((err) => console.log(err));
 
 
-app.use(express.static(path.join(__dirname, '/public/')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 
 app.use(session({
