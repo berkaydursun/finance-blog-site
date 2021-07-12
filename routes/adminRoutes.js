@@ -61,7 +61,7 @@ router.get("/deleteBlog", (req, res) => {
 
 });
 
-router.delete("/deleteBlog/:id", (req, res) => {
+router.get("/deleteBlog/:id", (req, res) => {
 
     Blog.findByIdAndDelete(req.params.id)
         .then(result => res.redirect("/admin"))
