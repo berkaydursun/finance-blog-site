@@ -1,34 +1,38 @@
 * {
-    color: white;
+    color: #222831;
+}
+
+body {
+    background-color: #EEEEEE;
 }
 
 .color-primary {
-    color: #14FFEC!important;
+    color: #00ADB5!important;
 }
 
 .bg-color-primary {
-    background-color: #14FFEC;
+    background-color: #00ADB5;
 }
 
 .color-secondary {
-    color: #323232;
+    color: #222831;
 }
 
 .bg-color-secondary {
-    background-color: #323232;
+    background-color: #222831;
 }
 
 .color-text-header {
-    color: #F05454;
+    color: #00ADB5;
 }
 
 .color-text {
-    color: #0D7377;
+    color: #00ADB5;
 }
 
 .color-text-shadow {
-    color: #0D7377;
-    text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 3px white;
+    color: #222831;
+    text-shadow: 1px 1px 2px #00ADB5, 0 0 25px #00ADB5;
 }
 
 

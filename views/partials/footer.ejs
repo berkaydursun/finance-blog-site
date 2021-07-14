@@ -1,3 +1,11 @@
+<!-- FOOTER -->
+
+<footer class="d-flex align-items-center justify-content-center bg-color-secondary">
+    <p class="text-center color-text">&copy; Copyright | Project X </p>
+</footer>
+
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -5,6 +13,30 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init();
+</script>
+
+<script>
+    var x = window.matchMedia("(max-width: 700px)");
+
+    function reverseElements(x) {
+        var section = document.getElementById('psr').childNodes;
+
+        var sectionParentElement = section[1];
+        var element = sectionParentElement.childNodes;
+
+        if (x.matches) { // If media query matches
+            console.log(element);
+            element[1].classList.add("flex-column-reverse");
+            console.log(element);
+
+        } else {
+            console.log(element);
+
+            element[1].classList.remove("flex-column-reverse");
+        }
+    }
+
+    reverseElements(x);
 </script>
 
 
