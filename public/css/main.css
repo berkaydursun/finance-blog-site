@@ -36,15 +36,17 @@ ul {
 
 #intsec {
     margin-top: 0px!important;
-    padding: 6rem;
-    background-image: url("/images/header-background.jpg");
+    margin-bottom: 0px;
+    background-image: url("/images/header-background2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 625px;
 }
 
 .header-box {
     max-width: 600px;
+    padding-top: 8rem;
 }
 
 .btn-grad {
@@ -140,6 +142,9 @@ li {
         padding: 0rem;
         height: 450px;
         background-image: none;
+    }
+    .header-box {
+        padding-top: 0rem;
     }
     section {
         margin-top: 70px;
