@@ -29,13 +29,16 @@ ul {
     margin-left: 5px;
 }
 
+#intsec {}
+
 .nav-link:hover {
     border-bottom-color: #0D7377;
     color: white;
 }
 
 #intsec {
-    margin-top: 140px;
+    margin-top: 0px!important;
+    padding: 6rem;
 }
 
 footer {
@@ -98,5 +101,13 @@ li {
     }
     .list-group-item {
         width: 220px;
+    }
+    #intsec {
+        margin-top: 30px!important;
+        padding: 0rem;
+        height: 450px;
+    }
+    section {
+        margin-top: 70px;
     }
 }
