@@ -29,8 +29,6 @@ ul {
     margin-left: 5px;
 }
 
-#intsec {}
-
 .nav-link:hover {
     border-bottom-color: #0D7377;
     color: white;
@@ -39,6 +37,38 @@ ul {
 #intsec {
     margin-top: 0px!important;
     padding: 6rem;
+    background-image: url("/images/header-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-box {
+    max-width: 600px;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #314755 0%, #00ADB5 51%, #314755 100%)
+}
+
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
 
 footer {
@@ -87,6 +117,9 @@ li {
     background-color: #222831;
 }
 
+
+/* scroll down effect */
+
 @media (max-width: 640px) {
     html {
         margin-top: 50px;
@@ -106,6 +139,7 @@ li {
         margin-top: 30px!important;
         padding: 0rem;
         height: 450px;
+        background-image: none;
     }
     section {
         margin-top: 70px;
