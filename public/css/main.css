@@ -89,6 +89,10 @@ section {
     margin: 0 auto;
 }
 
+.btn-dark {
+    background-color: #222831;
+}
+
 .mt-100 {
     margin-top: 100px;
 }
