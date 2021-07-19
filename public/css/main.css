@@ -37,7 +37,7 @@ ul {
 #intsec {
     margin-top: 0px!important;
     margin-bottom: 0px;
-    background-image: url("/images/header-background2.jpg");
+    background-image: url("/images/header-background.png");
     background-repeat: no-repeat;
     background-position: center;
     height: 625px;
@@ -60,7 +60,7 @@ ul {
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    border-radius: 10px;
+    border-radius: 100px;
     display: block;
 }
 
@@ -115,9 +115,6 @@ li {
 /* scroll down effect */
 
 @media (max-width: 640px) {
-    html {
-        margin-top: 50px;
-    }
     .fr {
         flex-direction: row-reverse;
     }
@@ -131,8 +128,8 @@ li {
     }
     #intsec {
         margin-top: 30px!important;
-        padding: 0rem;
-        height: 450px;
+        padding: 1rem;
+        height: 500px;
         background-image: none;
     }
     .header-box {
@@ -140,5 +137,8 @@ li {
     }
     section {
         margin-top: 70px;
+    }
+    .btn-grad {
+        margin: 0px;
     }
 }
