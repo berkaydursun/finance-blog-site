@@ -41,11 +41,17 @@ router.post('/signin', (req, res) => {
 
 
 
-router.get("/charts", (req, res) => {
+router.get("/termsofservice", (req, res) => {
 
-    res.render("charts");
+    res.render("termsofservice");
 
 });
 
+
+router.get("/contactUs", (req, res) => {
+
+    res.render("contactUs");
+
+});
 
 module.exports = router;
