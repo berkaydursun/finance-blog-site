@@ -19,10 +19,9 @@
     var x = window.matchMedia("(max-width: 700px)");
 
     function reverseElements(x) {
-        var section = document.getElementById('#psr').childNodes;
+        var section = document.getElementById('psr').childNodes;
 
         var sectionParentElement = section[1];
-        console.log(sectionParentElement)
         var element = sectionParentElement.childNodes;
 
         if (x.matches) { // If media query matches
