@@ -11,7 +11,7 @@
             <div class="row d-flex justify-content-center">
 
                 <div class="card mt-4 text-center col-md-8">
-                    <img class="card-image " src="/images/<%= blog.imageURL %>" />
+                    <img class="card-image w-100" src="/images/<%= blog.imageURL %>" />
                     <div class="card-body">
                         <h5 class="card-title">
                             <%=blog.title %>
@@ -33,9 +33,10 @@
             <hr>
             <br>
 
+        </div>
+    </section>
 
 
 
 
-
-            <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>
