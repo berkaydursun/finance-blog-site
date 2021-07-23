@@ -1,0 +1,53 @@
+<%- include("./partials/header.ejs") %>
+
+
+    <section id="messages">
+
+        <div class="container">
+
+            <% messages.forEach( msg=> { %>
+                <div class="row d-flex justify-content-center">
+
+                    <div class="card mt-4 text-center col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+
+                                <%= msg.firstName %>&nbsp;
+                                    <%= msg.lastName %>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <%=msg.createdAt.toDateString() %>
+                            </h6>
+                            <p class="card-text">
+                                <%=msg.body %>
+                            </p>
+                            <a href="mailto:<%= msg.email %>" class="card-link">
+                               Email : <%=msg.email %>
+                            </a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <% }) %>
+
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <%- include("./partials/footer.ejs") %>

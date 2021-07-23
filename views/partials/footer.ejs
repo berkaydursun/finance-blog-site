@@ -1,6 +1,6 @@
 <!-- FOOTER -->
 
-<footer class="d-flex align-items-center justify-content-center bg-color-secondary">
+<footer class="d-flex align-items-center justify-content-center bg-color-secondary" id="footer">
     <p class="text-center color-text">&copy; Copyright | Fermi Finance </p>
 </footer>
 
@@ -25,18 +25,28 @@
         var element = sectionParentElement.childNodes;
 
         if (x.matches) { // If media query matches
-            console.log(element);
             element[1].classList.add("flex-column-reverse");
-            console.log(element);
 
         } else {
-            console.log(element);
 
             element[1].classList.remove("flex-column-reverse");
         }
     }
 
     reverseElements(x);
+</script>
+
+<script>
+    $(document).ready(function() {
+
+        var docHeight = $(window).height();
+        var footerHeight = $('#footer').height();
+        var footerTop = $('#footer').position().top + footerHeight;
+
+        if (footerTop < docHeight) {
+            $('#footer').css('margin-top', (docHeight - footerTop) + 'px');
+        }
+    });
 </script>
 
 

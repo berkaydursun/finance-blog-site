@@ -1,5 +1,7 @@
 var express = require('express'),
     Blog = require("../models/blog"),
+    Message = require("../models/message"),
+
     router = express.Router();
 var multer = require('multer');
 const path = require('path');
@@ -31,6 +33,18 @@ router.get("/", (req, res) => {
 
 });
 
+router.get("/seeMessages", (req, res) => {
+
+
+    Message.find().sort({ createdAt: -1 })
+        .then(result => res.render("messages", { messages: result }))
+        .catch(err => console.log(err));
+
+
+
+
+
+})
 
 
 router.get("/addBlog", (req, res) => {

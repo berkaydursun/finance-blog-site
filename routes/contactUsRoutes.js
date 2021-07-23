@@ -12,6 +12,9 @@ router.post('/contactUs', (req, res) => {
 
     const message = new Message({
         _id: uuidv4(),
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
         body: req.body.text
 
     });

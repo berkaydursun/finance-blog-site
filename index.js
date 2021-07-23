@@ -9,6 +9,8 @@ const app = express();
 const blogRoutes = require('./routes/blogRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const indexRoutes = require('./routes/indexRoutes');
+const contactUsRoutes = require('./routes/contactUsRoutes');
+
 const isLogged = require('./middleware/loginCheck');
 
 const session = require('express-session');
@@ -42,3 +44,4 @@ app.use(bodyParser.json());
 app.use(blogRoutes);
 app.use("/admin", isLogged, adminRoutes);
 app.use(indexRoutes);
+app.use(contactUsRoutes);
